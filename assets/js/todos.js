@@ -11,10 +11,16 @@ $("ul").on("click", "span", function(){
 	event.stopPropagation();
 })
 
+//add todo when enter is pressed
 $("input[type='text']").keypress(function(event){
 	if(event.which == 13){
 		var todoText = $(this).val();
 		$(this).val("");
-		$("ul").append("<li><span>X</span> "+todoText+"</li>")
+		$("ul").append("<li><span><i class='fa fa-trash'></i></span> "+todoText+"</li>")
 	}
+})
+
+//toggle txt input when plus sign is clicked
+$(".fa-plus").click(function(){
+	$("input[type='text']").fadeToggle();
 })
